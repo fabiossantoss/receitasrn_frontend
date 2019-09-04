@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Text} from './styles';
+import {Container, Text, Button, Input} from './styles';
 
 //diagrama ciclo de vida
 //http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
@@ -7,29 +7,53 @@ import {Container, Text} from './styles';
 class Page extends Component {
   constructor(props) {
     super(props);
-
-    console.tron.log('constructor');
-    this.state = {
-      data: [],
-      loading: false,
-    };
+    alert('constructor');
   }
 
+  state = {
+    skills: ['Node', 'React'],
+    skill: '',
+    loading: false,
+  };
+
+  //componentDidMount() É invocado imediatamente após um componente ser montado
   componentDidMount() {
-    console.tron.log('componentDidMount');
+    alert('componentDidMount');
   }
+
+  //componentDidUpdate() é invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.skills !== this.state.skills) {
+      console.log('mudou');
+    }
+  }
+
+  //componentWillUnmount() é invocado imediatamente antes que um componente seja desmontado e destruído
+  componentWillMount() {
+    alert('componentWillMount');
+  }
+
+  handleInput = () => {
+    this.setState({skills: [...this.state.skills, this.state.skill]});
+    this.setState({skill: ''});
+  };
 
   render() {
-    console.tron.log('render');
     return (
       <Container>
-        <Text>Component Life Cylce</Text>
+        <Text>Hooks Life Cylce</Text>
+        {this.state.skills.map(item => {
+          return <Text key={item}>{item}</Text>;
+        })}
+        <Input
+          value={this.state.skill}
+          onChangeText={item => this.setState({skill: item})}
+        />
+        <Button onPress={this.handleInput}>
+          <Text>Adicionar</Text>
+        </Button>
       </Container>
     );
-  }
-
-  componentWillMount() {
-    console.tron.log('componentWillMount');
   }
 }
 
