@@ -3,7 +3,7 @@ export const Types = {
 };
 
 const INITIAL_STATE = {
-  data: [],
+  reducerTeste: [],
 };
 
 function test(state = INITIAL_STATE, action) {

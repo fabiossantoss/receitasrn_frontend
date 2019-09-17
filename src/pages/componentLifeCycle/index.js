@@ -7,7 +7,7 @@ import {Container, Text, Button, Input} from './styles';
 class Page extends Component {
   constructor(props) {
     super(props);
-    alert('constructor');
+    console.tron.log('Component montado');
   }
 
   state = {
@@ -18,19 +18,34 @@ class Page extends Component {
 
   //componentDidMount() É invocado imediatamente após um componente ser montado
   componentDidMount() {
-    alert('componentDidMount');
+    console.tron.log('Component montado');
   }
 
   //componentDidUpdate() é invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
+  //alterou prop ou state esse cara roda
   componentDidUpdate(prevProps, prevState) {
+    // console.tron.log('alterou');
     if (prevState.skills !== this.state.skills) {
-      console.log('mudou');
+    } else {
+      return false;
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.tron.log(nextState);
+    if (this.state.skills !== nextState.skills) {
+      console.tron.log('renderiza');
+      return true;
+    } else {
+      console.tron.log('else');
+      return false;
+    }
+  }
+
+  unse;
   //componentWillUnmount() é invocado imediatamente antes que um componente seja desmontado e destruído
   componentWillMount() {
-    alert('componentWillMount');
+    // console.tron.log('Component desmontado');
   }
 
   handleInput = () => {
@@ -39,6 +54,7 @@ class Page extends Component {
   };
 
   render() {
+    console.tron.log('render');
     return (
       <Container>
         <Text>Hooks Life Cylce</Text>

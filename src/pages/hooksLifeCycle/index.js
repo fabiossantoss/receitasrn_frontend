@@ -12,20 +12,19 @@ function Page() {
 
   //componentDidMout -- criação do component
   useEffect(() => {
-    alert('aplicação criada');
+    console.tron.log('aplicação criada');
 
     //componentWillMout -- se retornarmos uma função dentro do effect ela terá o comportamento do willMount
 
     return () => {
-      alert('component desconstruido');
+      console.tron.log('component desconstruido');
     };
   }, []);
 
   //componentDidUpdate -- atualização de propriedades
   useEffect(() => {
-    alert('mudou a skill');
+    console.tron.log('mudou a skill');
   }, [skills]);
-
   return (
     <Container>
       <Text>Hooks Life Cylce</Text>

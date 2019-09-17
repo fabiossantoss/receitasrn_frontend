@@ -16,7 +16,8 @@ class Page extends Component {
   //componentDidMount() É invocado imediatamente após um componente ser montado
   componentDidMount() {
     //com sagas
-    //this.props.getRecipes();
+    this.props.getRecipes();
+    // console.tron.log(this.props);
   }
 
   //componentDidUpdate() é invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
