@@ -4,10 +4,9 @@ export const Types = {
 
 const INITIAL_STATE = {
   reducerTeste: [],
+  estudoRedux: '',
 };
 
-function test(state = INITIAL_STATE, action) {
+export default function test(state = INITIAL_STATE, action) {
   return state;
 }
-
-export default test;

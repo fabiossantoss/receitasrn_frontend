@@ -11,6 +11,10 @@ function Page() {
   }
 
   //componentDidMout -- criação do component
+  // useEffect(() => {
+  //   console.tron.log('aplicação criada');
+  // }, []);
+
   useEffect(() => {
     console.tron.log('aplicação criada');
 
@@ -25,9 +29,11 @@ function Page() {
   useEffect(() => {
     console.tron.log('mudou a skill');
   }, [skills]);
+
   return (
     <Container>
       <Text>Hooks Life Cylce</Text>
+
       {skills.map(item => {
         return <Text key={item}>{item}</Text>;
       })}

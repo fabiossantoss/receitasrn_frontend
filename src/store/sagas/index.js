@@ -5,23 +5,5 @@ import {getRecipes} from './Recipes';
 
 export default function* rootSaga() {
   return yield all([takeLatest(RecipesTypes.GET_RECIPES, getRecipes)]);
+  // return yield all([]);
 }
-
-
-
-adonis new teste --api-only
-
-DB_DATABASE
-bdProjeto
-
-DB_HOST
-srv01191041.database.windows.net
-
-DB_PASSWORD
-#Gf48005253818
-
-DB_USER
-vitor01191041
-
-DB_PORT
-3306

@@ -15,7 +15,7 @@ export default function recipes(state = INITIAL_STATE, action) {
     case Types.GET_RECIPES:
       return {loading: true, error: false, data: []};
     case Types.GET_RECIPES_SUCCESS:
-      return {loading: false, error: '', data: action.payload.data};
+      return {loading: false, error: '', data: action.data};
     case Types.GET_RECIPES_ERROR:
       return {loading: false, error: action.payload.error, ...state};
     default:
@@ -23,22 +23,22 @@ export default function recipes(state = INITIAL_STATE, action) {
   }
 }
 
-export const Creators = {
-  getRecipes: () => ({
-    type: Types.GET_RECIPES,
-  }),
+// export const Creators = {
+//   getRecipes: () => ({
+//     type: Types.GET_RECIPES,
+//   }),
 
-  getRecipesSucces: data => ({
-    type: Types.GET_RECIPES_SUCCESS,
-    payload: {
-      data,
-    },
-  }),
+//   getRecipesSucces: data => ({
+//     type: Types.GET_RECIPES_SUCCESS,
+//     payload: {
+//       data,
+//     },
+//   }),
 
-  getRecipesError: error => ({
-    type: Types.GET_RECIPES_ERROR,
-    payload: {
-      error,
-    },
-  }),
-};
+//   getRecipesError: error => ({
+//     type: Types.GET_RECIPES_ERROR,
+//     payload: {
+//       error,
+//     },
+//   }),
+// };

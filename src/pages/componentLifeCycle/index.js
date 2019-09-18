@@ -24,7 +24,7 @@ class Page extends Component {
   //componentDidUpdate() é invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
   //alterou prop ou state esse cara roda
   componentDidUpdate(prevProps, prevState) {
-    // console.tron.log('alterou');
+    console.tron.log('alterou');
     if (prevState.skills !== this.state.skills) {
     } else {
       return false;
@@ -42,7 +42,6 @@ class Page extends Component {
     }
   }
 
-  unse;
   //componentWillUnmount() é invocado imediatamente antes que um componente seja desmontado e destruído
   componentWillMount() {
     // console.tron.log('Component desmontado');

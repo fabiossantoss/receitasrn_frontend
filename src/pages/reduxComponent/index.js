@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Creators as Actions} from '~/store/ducks/Recipes';
 import api from '~/services/api';
 import {connect} from 'react-redux';
+import {ActivityIndicator} from 'react-native';
 
 //diagrama ciclo de vida
 //http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
@@ -15,9 +16,7 @@ class Page extends Component {
 
   //componentDidMount() É invocado imediatamente após um componente ser montado
   componentDidMount() {
-    //com sagas
-    this.props.getRecipes();
-    // console.tron.log(this.props);
+    // this.props.getRecipes();
   }
 
   //componentDidUpdate() é invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
@@ -38,6 +37,9 @@ class Page extends Component {
         {this.props.recipes.data.map(item => {
           return <Text key={item.id}>{item.title}</Text>;
         })}
+        {this.props.recipes.loading && (
+          <ActivityIndicator size="large" color="#000" />
+        )}
         <Button onPress={this.buscarReceitas}>
           <Text>Buscar Receitas</Text>
         </Button>
